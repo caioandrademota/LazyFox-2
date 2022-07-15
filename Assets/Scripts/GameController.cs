@@ -14,7 +14,12 @@ public class GameController : MonoBehaviour
     {
         TryGetComponent(out audioSource);
     }
-
+    public void StartButton(){
+        SceneManager.LoadScene("Gameplay");
+    }
+    public void ExitButton(){
+        Application.Quit();
+    }
     public void ActivateVictoryPanel()
     {
         victoryPanel.SetActive(true);
