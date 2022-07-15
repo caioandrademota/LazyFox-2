@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
+    [SerializeField] private float doubleJumpForce;
     [SerializeField] private float forceOnFalling;
     [SerializeField] private float fallingSpeedLimit;
 
@@ -13,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb2D;
     private bool isJumping;
+    private bool  doubleJumped;
 
     private AudioSource audioSource;
 
@@ -36,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isJumping)
         {
+            TryDoubleJump();
             return;
         }
 
@@ -43,6 +46,20 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
         rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
         rb2D.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+    }
+
+    public void TryDoubleJump()
+    {
+        if (doubleJumped)
+        {
+            return;
+        }
+
+        audioSource.Play();
+        doubleJumped = true;
+        rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
+        rb2D.AddForce(Vector2.up * doubleJumpForce, ForceMode2D.Impulse);
+
     }
 
     public void TryResetJumping()
@@ -53,5 +70,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         isJumping = false;
+        doubleJumped = false;
     }
 }
