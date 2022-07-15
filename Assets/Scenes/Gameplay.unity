@@ -3817,7 +3817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7101173, y: -0.00000011920929, z: -10}
+  m_LocalPosition: {x: 1.7101159, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1136375479}
@@ -27513,6 +27513,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8065629814729945170, guid: ce9953de3e799664daf06a782a244b53, type: 3}
+      propertyPath: doubleJumpForce
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 8065629814729945178, guid: ce9953de3e799664daf06a782a244b53, type: 3}
       propertyPath: m_Name
       value: PlayerFox
